@@ -1,4 +1,4 @@
-Getting Started - dev
+Getting Started - develop
 ---------------
 This is a demo project for education/training purposes of DevOps. All the services used below are in the Cloud to facilitate the understanding.
 The architecture uses microservices and containerization.
