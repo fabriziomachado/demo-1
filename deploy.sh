@@ -38,7 +38,7 @@ if [ -z "$PROVISIONED" ]; then
   rm cluster-manager-ip
 
   if [ ! -f "./.kubeconfig" ]; then
-    scp -i ./.id_rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@$CLUSTER_MANAGER_IP:/etc/rancher/k3s/k3s.yaml ./.kubeconfig
+    scp -i ${LINODE_PRIVATE_KEY} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@$CLUSTER_MANAGER_IP:/etc/rancher/k3s/k3s.yaml ./.kubeconfig
 
     sed -i -e 's|127.0.0.1|'"$CLUSTER_MANAGER_IP"'|g' ./.kubeconfig
 
@@ -54,7 +54,7 @@ if [ -z "$PROVISIONED" ]; then
   rm /tmp/kubernetes.yml
 else
   if [ ! -f "./.kubeconfig" ]; then
-    scp -i ./.id_rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@cluster-manager.${CLOUDFLARE_ZONE_NAME}:/etc/rancher/k3s/k3s.yaml ./.kubeconfig
+    scp -i ${LINODE_PRIVATE_KEY} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@cluster-manager.${CLOUDFLARE_ZONE_NAME}:/etc/rancher/k3s/k3s.yaml ./.kubeconfig
 
     sed -i -e 's|127.0.0.1|'"cluster-manager.$CLOUDFLARE_ZONE_NAME"'|g' ./.kubeconfig
 
