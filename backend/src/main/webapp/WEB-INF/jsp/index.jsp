@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Phonebook Application</title>
+    <title>Phonebook Applications</title>
     <jsp:include page="header.jsp"/>
 </head>
 <body>
